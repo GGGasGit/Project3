@@ -1,0 +1,126 @@
+/* RESETS */
+
+html {
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* ... */
+
+body {
+    background-image: url("/img/background2.jpg");
+    font-family: 'Montserrat', Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+}
+
+.selector-container {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selector-item {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selector-legend {
+    margin-bottom: 8px;
+    font-size: 1.6rem;
+}
+
+.crypto-select-row {
+    padding-bottom: 8px;
+}
+
+/* */
+
+table {
+    border: 1px solid black;
+    background-color: #eee;
+    border-spacing: 0;
+    font-size: 1.4rem;
+}
+
+th, td {
+    border: 1px solid black;
+    margin: 0;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+th {
+    background-color: lightgray;
+}
+
+caption {
+    margin: 5px 0;
+    font-size: 1.6rem;
+}
+
+.getbutton {
+    width: 80px;
+    height: 30px;
+    background-color: lightblue;
+    font-weight: 600;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bidasktable {
+    margin-bottom: 15px;
+}
+
+.errortext {
+    color: red;
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-top: 10px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    margin: 20px 0 0 0;
+    line-height: 2rem;
+}
+
+.footertext {
+    font-size: 1.4rem;
+}
+
+@media screen and (min-width: 576px) {
+    body {
+        background-image: url("/img/background.jpg");
+    }
+}

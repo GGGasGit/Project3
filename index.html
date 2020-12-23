@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Cryptocurrency Price Checker</h1>
+    </header>
+
+    <main>
+        <div class="selector-container">
+            <div class="selector-item">
+                <legend class="selector-legend">Select exchange</legend>
+                <select name="exchange" class="js-selectfield"></select>
+            </div>
+
+            <div class="selector-item">
+                <legend class="selector-legend">Select cryptocurrency</legend>
+                <div class="crypto-select-row">
+                    <input type="radio" name="cryptocurrency" id="currency-btc" value="btc" class="js-cryptocurrency"
+                        data-label="Bitcoin" checked>
+                    <label for="currency-btc">Bitcoin</label>
+                    <input type="radio" name="cryptocurrency" id="currency-eth" value="eth" class="js-cryptocurrency"
+                        data-label="Ethereum">
+                    <label for="currency-eth">Ethereum</label>
+                </div>
+                <div class="crypto-select-row">
+                    <input type="radio" name="cryptocurrency" id="currency-xrp" value="xrp" class="js-cryptocurrency"
+                        data-label="Ripple">
+                    <label for="currency-btc">Ripple (XRP)</label>
+                    <input type="radio" name="cryptocurrency" id="currency-ltc" value="ltc" class="js-cryptocurrency"
+                        data-label="Litecoin">
+                    <label for="currency-eth">Litecoin</label>
+                </div>
+            </div>
+
+            <div class="selector-item">
+                <legend class="selector-legend">Select fiat currency</legend>
+                <div>
+                    <input type="radio" name="fiatcurrency" id="currency-eur" value="eur" class="js-fiatcurrency"
+                        data-label="EUR" checked>
+                    <label for="currency-btc">EUR</label>
+                    <input type="radio" name="fiatcurrency" id="currency-usd" value="usd" class="js-fiatcurrency"
+                        data-label="USD">
+                    <label for="currency-usd">USD</label>
+                </div>
+            </div>
+
+            <div class="selector-item">
+                <input type="submit" value="GET" class="getbutton js-getbutton">
+            </div>
+
+        </div>
+
+        <div class="table-container">
+            <table class="bidasktable">
+                <caption class="js-table-caption">Bitcoin Price (EUR)</caption>
+                <thead>
+                    <tr>
+                        <th>Exchange</th>
+                        <th>Bid</th>
+                        <th>Ask</th>
+                    </tr>
+                </thead>
+                <tbody class="js-bidasktable"></tbody>
+            </table>
+
+            <table class="js-bestpricetable"></table>
+
+            <p class="errortext js-errortext"></p>
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footertext">*Eff. stands for effective, taking fee into consideration</p>
+        <p class="footertext">&copy; Copyright 2020 - gasparads at gmail dot com</p>
+    </footer>
+
+    <script src="./script/script.js"></script>
+
+</body>
+
+</html>
