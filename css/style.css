@@ -19,7 +19,7 @@ img {
 /* ... */
 
 body {
-    background-image: url("/img/background2.jpg");
+    background-image: url("/img/background.jpg");
     font-family: 'Montserrat', Arial, sans-serif;
     text-rendering: optimizeLegibility;
 }
@@ -119,8 +119,8 @@ footer {
     font-size: 1.4rem;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (max-width: 576px) {
     body {
-        background-image: url("/img/background.jpg");
+        background-image: url("/img/background2.jpg");
     }
 }
