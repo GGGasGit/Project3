@@ -244,7 +244,7 @@ const parseResponse = async function() {
 
     if (selectField.value === "all") {
     //The advantage of using promise.allSettled besides being able to wait for all the responses to settle
-    //is that the resultSet array is in the same strict order as the querySet array
+    //is that the resultSet array is in the same strict order as the querySet array, plus no error handling needed
         const results = await Promise.allSettled(apiQueriesGenerator());
 
         resultSetParser(results);
