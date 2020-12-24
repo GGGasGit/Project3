@@ -16,8 +16,6 @@ img {
     height: auto;
 }
 
-/* ... */
-
 body {
     background-image: url("/img/background2.jpg");
     font-family: 'Montserrat', Arial, sans-serif;
@@ -53,11 +51,14 @@ h1 {
     font-size: 1.6rem;
 }
 
+.selectfield {
+    padding: 3px;
+    border-radius: 5px;
+}
+
 .crypto-select-row {
     padding-bottom: 8px;
 }
-
-/* */
 
 table {
     border: 1px solid black;
