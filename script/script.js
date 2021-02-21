@@ -20,7 +20,7 @@ const exchanges = {
     "bitbay" : {
         "name": "Bitbay",
         "urlcryptosuffixes": {"btc": "BTC", "eth": "ETH", "xrp": "XRP", "ltc": "LTC"},
-        "urlfiatsuffixes": {"eur": "EUR", "usd": "USD"},
+        "urlfiatsuffixes": {"eur": "EUR", "usd": "USDT"},
         "url" : 'https://api.bitbay.net/rest/trading/ticker/<crypto>-<fiat>', //BTC-EUR   //public api that gives CORS error: https://bitbay.net/API/Public/BTCEUR/ticker.json
         "bidmatcher": /"highestBid":"\d+(.)\d+"/,
         "askmatcher": /"lowestAsk":"\d+(.)\d+"/,
@@ -112,7 +112,13 @@ function getData(exchange) {
         const currencyPair = getCurrencyPair("value");
         return fetch(createUrl(exchange, currencyPair[0], currencyPair[1]), exchanges[exchange].fetchOptions)
         .then(
-            response => response.text(),
+            response => {
+                if (response.status === 200) {
+                    return response.text();
+                } else {
+                    return "";
+                }
+            } 
         );
 }
 
@@ -143,7 +149,7 @@ function isCurrencyPair(currencyPair, crypto, fiat) {
 //This function stores the bids and asks from the result.value data using the bidAskFinder function
 //Input function for the resultSetParser function
 function bidAskConverterAll(exchange) {
-    if (exchange.result.status === "fulfilled") {
+    if (exchange.result.status === "fulfilled" && exchange.result.value !== "") {
         exchange.bid = Number.parseFloat(bidAskFinder(exchange.result.value, exchange.bidmatcher));
         exchange.ask = Number.parseFloat(bidAskFinder(exchange.result.value, exchange.askmatcher));
     } else {
@@ -234,7 +240,7 @@ function bestPriceTableGenerator() {
 
 //The main function
 //If "all" is selected, awaits for all the promises to settle, parses the results and then draws the table
-//If one exchanges is selected only, it returns only one row in the table
+//If one exchange is selected only, it returns only one row in the table
 const parseResponse = async function() {
 
     tableCaptionChanger(getCurrencyPair("dataset"));
@@ -244,8 +250,9 @@ const parseResponse = async function() {
 
     if (selectField.value === "all") {
     //The advantage of using promise.allSettled besides being able to wait for all the responses to settle
-    //is that the resultSet array is in the same strict order as the querySet array, plus no error handling needed
+    //is that the resultSet array is in the same strict order as the querySet array, plus no error handling is needed
         const results = await Promise.allSettled(apiQueriesGenerator());
+        console.log(results);
 
         resultSetParser(results);
 
