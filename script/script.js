@@ -21,7 +21,7 @@ const exchanges = {
         "name": "Bitbay",
         "urlcryptosuffixes": {"btc": "BTC", "eth": "ETH", "xrp": "XRP", "ltc": "LTC"},
         "urlfiatsuffixes": {"eur": "EUR", "usd": "USDT"},
-        "url" : 'https://api.bitbay.net/rest/trading/ticker/<crypto>-<fiat>', //BTC-EUR   //public api that gives CORS error: https://bitbay.net/API/Public/BTCEUR/ticker.json
+        "url" : 'https://api.zonda.exchange/rest/trading/ticker/<crypto>-<fiat>', //BTC-EUR
         "bidmatcher": /"highestBid":"\d+(.)\d+"/,
         "askmatcher": /"lowestAsk":"\d+(.)\d+"/,
         "fee" : 0.0041,
